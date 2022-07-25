@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-header">
+        <a class="btn btn-success" routerLink="/add-employee" role="button">New Employee</a>
+    </div>
+    <div class="card-body">
+        <h1>List employees</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employee of employees; let iControl=index">
+                    <td scope="row">{{ employee.id }}</td>
+                    <td>{{ employee.name }}</td>
+                    <td>{{ employee.email }}</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" routerLink="/edit-employee/{{ employee.id }}" role="button">Edit</a>
+                        &nbsp;
+                        <a class="btn btn-danger btn-sm" (click)="deleteRegister(employee.id, iControl)" role="button">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div> 
